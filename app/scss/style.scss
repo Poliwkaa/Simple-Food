@@ -1,8 +1,396 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 62px 0;
+
+  &__list {
+    display: flex;
+  }
+
+  &__link {
+    line-height: 1.15;
+    margin-right: 45px;
+  }
+}
+
+.animation,
+.search,
+.cart,
+.footer__social,
+.categories__btn,
+.product-card,
+.footer__input,
+.footer__input::placeholder,
+.logo {
+  transition: box-shadow 0.5s, color 0.5s, text-shadow 0.5s, background-color 0.5s;
+}
+
+.animation {
+  box-shadow: 0 0 0 2px transparent;
+  border-radius: 5px;
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+  }
+
+  &:hover {
+    color: $accent-color;
+    box-shadow: 0 0 0 2px transparent;
+  }
+
+  &:active {
+    color: $darkblue-900;
+    box-shadow: 0 0 0 2px transparent;
+    text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+  }
+}
+
+.search {
+  margin: -8px 6px 0 10px;
+  padding: 11px;
+  height: 44px;
+}
+
+.search,
+.cart,
+.footer__social {
+  border-radius: 5px;
+  box-shadow: 0 0 0 2px transparent;
+
+  & svg path {
+    transition: fill 0.5s;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+    background-color: rgba(255, 122, 80, 0.1);
+  }
+
+  &:hover {
+    background-color: $accent-color;
+  }
+
+  &:hover svg path {
+    fill: #fff;
+  }
+
+  &:active {
+    background-color: rgba(255, 122, 80, 0.1);
+    box-shadow: 0 0 0 2px transparent;
+  }
+
+  &:active svg path {
+    fill: $accent-color;
+  }
+}
+
+.cart {
+  position: relative;
+  margin-top: 6px;
+  padding: 14px 12px 9px;
+
+  &__num {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: $accent-color;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: center;
+    top: 7px;
+    right: 5px;
+    padding-top: 3px;
+  }
+}
+
+.hero {
+  &__inner {
+    height: calc(100vh - 254px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__content {
+    max-width: 450px;
+  }
+
+  &__title {
+    @extend %rubik-500;
+    font-size: 66px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: $darkblue-900;
+    margin-bottom: 20px;
+
+    & span {
+      color: $accent-color;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+  }
+
+  &__image {
+    max-width: 560px;
+    width: 100%;
+    max-height: 660px;
+    height: 100%;
+    background-image: url('../images/hero-img.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    align-items: start;
+  }
+}
+
+.details {
+  margin-left: 34px;
+  font-size: 20px;
+  line-height: 1.5;
+  padding: 5px 0;
+}
+
+.categories {
+  text-align: center;
+  padding: 125px 0;
+
+  &__title {
+    margin-bottom: 60px;
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 28px 45px 0;
+  }
+
+  &__filter {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 1px $silver-200;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+
+  &__btn {
+    padding: 22px 32px;
+    max-height: 70px;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+      & svg {
+        margin-right: 10px;
+      }
+
+      & svg path{
+        transition: fill 0.5s;
+      }
+
+      &:hover {
+        box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+        background-color: rgba(255, 122, 80, 0.1);
+      }
+
+      &:hover svg path {
+        fill: $accent-color;
+      }
+
+      &:active {
+        box-shadow: inset 0 -5px 12px rgba(255, 104, 56, 0.2);
+        background-color: #fff;
+        text-shadow: none;
+      }
+
+      &:active svg path {
+        fill: $darkblue-900;
+      }
+    }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 60px;
+  }
+}
+
+.product-card {
+  height: 299px;
+  text-align: center;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px $silver-200;
+  border-radius: 5px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $accent-color;
+  }
+
+  &__img {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 15px;
+    line-height: 1.2;
+    margin-top: -8px;
+  }
+
+  &__price {
+    @extend %rubik-500;
+    font-size: 15px;
+    line-height: 1.4;
+    color: $darkblue-900;
+    margin-bottom: -15px;
+  }
+
+  &__btn {
+    font-size: 14px;
+    padding: 7px 16px;
+    max-width: 100px;
+    margin: 0 auto;
+  }
+}
+
+.more {
+  text-decoration-line: underline;
+  color: $darkblue-900;
+}
+
+.footer {
+  padding-top: 120px;
+
+  &__inner {
+    display: flex;
+  }
+
+  &__subscribe {
+    margin-right: 70px;
+  }
+
+  &__input {
+    margin: 25px 0 12px;
+    width: 200px;
+    height: 44px;
+    padding: 13px 15px;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    font-size: 14px;
+
+      &::placeholder {
+        color: $gray;
+        font-size: 14px;
+        line-height: 1.3;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.7);
+      }
+
+      &:hover::placeholder {
+        color: $darkblue-900;
+      }
+  }
+
+  &__button {
+    width: 100%;
+    padding: 13px 38px;
+    font-size: 14px;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+
+      & svg {
+        margin-right: 15px;
+      }
+      &:focus svg path,
+      &:hover svg path,
+      &:active svg path {
+        fill: $accent-color;
+      }
+  }
+
+  &__links {
+    column-count: 3;
+    max-height: 170px;
+    margin-right: 70px;
+    max-width: 570px;
+    width: 100%;
+  }
+
+  &__link {
+    display: block;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  &__contact {
+    display: block;
+    padding-left: 31px;
+    margin-bottom: 14px;
+    position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 2px;
+        height: 24px;
+        width: 24px;
+      }
+
+    &--address::before {
+      background-image: url('../images/icons/location.svg');
+    }
+
+    &--phone::before {
+      background-image: url('../images/icons/phone.svg');
+    }
+
+    &--mail::before {
+      background-image: url('../images/icons/mail.svg');
+    }
+
+  }
+
+  &__socials {
+    display: flex;
+  }
+
+  &__social {
+    font-size: 16px;
+    line-height: 2;
+    width: 39px;
+    height: 39px;
+    background-color: $silver-200;
+    border-radius: 50%;
+    margin: 0 13px 60px 0;
+    text-align: center;
+    padding: 9px 0;
+  }
+
+  &__copyright {
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1;
+    border-top: 1px solid $gray;
+  }
+}
 
 
 @import 'media';
