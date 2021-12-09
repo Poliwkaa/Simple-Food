@@ -440,7 +440,7 @@
     transition: box-shadow 0.5s, background-color 0.5s;
 
     &:focus {
-      background-color: #FFF2ED;
+      background-color: $background;
       box-shadow: 0 0 0 2px rgba($accent-color, 0.7);
     }
 
@@ -460,7 +460,7 @@
 
     &:active {
       box-shadow: 0 0 0 2px transparent;
-      background-color: #FFF2ED;
+      background-color: $background;
     }
 
     &:active .best-restaurant__icon {
@@ -573,8 +573,8 @@
     }
 
     &:hover {
-      border-color: #FFAE94;
-      background-color: #FFF2ED;
+      border-color: $pale-accent;
+      background-color: $background;
     }
 
     &:active {
@@ -624,12 +624,12 @@
     }
 
     &:hover {
-      background-color: #FFF2ED;
+      background-color: $background;
       box-shadow: 0 0 0 2px rgba($accent-color, 0.7);
     }
 
     &:active {
-      background-color: #FFAE94;
+      background-color: $pale-accent;
     }
 
     &.slick-active {
